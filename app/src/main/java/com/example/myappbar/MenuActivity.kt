@@ -1,6 +1,7 @@
 package com.example.myappbar
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -18,6 +19,14 @@ class MenuActivity : AppCompatActivity() {
 
         with(binding) {
             searchView.setupWithSearchBar(searchBar)
+            searchView
+                .editText
+                .setOnEditorActionListener{textView, actionId, event ->
+                    searchBar.setText(searchView.text)
+                    searchView.hide()
+                    Toast.makeText(this@MenuActivity, searchView.text, Toast.LENGTH_SHORT).show()
+                    false
+                }
         }
     }
  }
