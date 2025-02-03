@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.topAppBar.setOnMenuItemClickListener { menuItem ->
+            // Handle menu item clicks
             when (menuItem.itemId) {
                 R.id.menu1 -> {
                     supportFragmentManager.beginTransaction()
